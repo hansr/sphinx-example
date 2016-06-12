@@ -69,7 +69,7 @@ export function attemptToggleLightbulbState (serialnumber) {
     email = email || window.sessionStorage.getItem('email')
 
     let current_state = lightbulbs.statuses.filter(v => v.serialnumber == serialnumber)[0].state
-    let new_state = current_state == "off" ? "on" : "off"
+    let new_state = current_state == "0" ? "1" : "0"
 
     function toggleLightbulbResonseHandler () {
       if (this.status === 200) {
@@ -221,7 +221,7 @@ export function attemptAddLightbulb (serialnumber) {
       dispatch({
         type: 'ADD_LIGHTBULB_SUCCESS',
         serialnumber: serialnumber,
-        state: "off"
+        state: "0"
       })
     }, 1000)
   }
